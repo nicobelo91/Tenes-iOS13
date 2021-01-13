@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		0411B8B025AF99A700360B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8AF25AF99A700360B95 /* AppDelegate.swift */; };
 		0411B8B225AF99A700360B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8B125AF99A700360B95 /* SceneDelegate.swift */; };
-		0411B8B425AF99A700360B95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8B325AF99A700360B95 /* ViewController.swift */; };
 		0411B8B725AF99A700360B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411B8B525AF99A700360B95 /* Main.storyboard */; };
 		0411B8BA25AF99A700360B95 /* Tenes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8B825AF99A700360B95 /* Tenes.xcdatamodeld */; };
 		0411B8BC25AF99AB00360B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0411B8BB25AF99AB00360B95 /* Assets.xcassets */; };
 		0411B8BF25AF99AB00360B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411B8BD25AF99AB00360B95 /* LaunchScreen.storyboard */; };
+		0411B8C925AF9E1000360B95 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8C825AF9E1000360B95 /* ListViewController.swift */; };
+		0411B8CF25AFA6F700360B95 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8CE25AFA6F700360B95 /* PeopleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0411B8AC25AF99A700360B95 /* Tenes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tenes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411B8AF25AF99A700360B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411B8B125AF99A700360B95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0411B8B325AF99A700360B95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0411B8B625AF99A700360B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0411B8B925AF99A700360B95 /* Tenes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tenes.xcdatamodel; sourceTree = "<group>"; };
 		0411B8BB25AF99AB00360B95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0411B8BE25AF99AB00360B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0411B8C025AF99AB00360B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0411B8C825AF9E1000360B95 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0411B8CE25AFA6F700360B95 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,39 @@
 			children = (
 				0411B8AF25AF99A700360B95 /* AppDelegate.swift */,
 				0411B8B125AF99A700360B95 /* SceneDelegate.swift */,
-				0411B8B325AF99A700360B95 /* ViewController.swift */,
-				0411B8B525AF99A700360B95 /* Main.storyboard */,
+				0411B8CB25AFA6C700360B95 /* View */,
 				0411B8BB25AF99AB00360B95 /* Assets.xcassets */,
 				0411B8BD25AF99AB00360B95 /* LaunchScreen.storyboard */,
 				0411B8C025AF99AB00360B95 /* Info.plist */,
-				0411B8B825AF99A700360B95 /* Tenes.xcdatamodeld */,
+				0411B8CD25AFA6D600360B95 /* Model */,
+				0411B8CC25AFA6CC00360B95 /* Controller */,
 			);
 			path = Tenes;
+			sourceTree = "<group>";
+		};
+		0411B8CB25AFA6C700360B95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0411B8B525AF99A700360B95 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0411B8CC25AFA6CC00360B95 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0411B8C825AF9E1000360B95 /* ListViewController.swift */,
+				0411B8CE25AFA6F700360B95 /* PeopleViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0411B8CD25AFA6D600360B95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0411B8B825AF99A700360B95 /* Tenes.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0411B8B425AF99A700360B95 /* ViewController.swift in Sources */,
+				0411B8CF25AFA6F700360B95 /* PeopleViewController.swift in Sources */,
 				0411B8BA25AF99A700360B95 /* Tenes.xcdatamodeld in Sources */,
 				0411B8B025AF99A700360B95 /* AppDelegate.swift in Sources */,
+				0411B8C925AF9E1000360B95 /* ListViewController.swift in Sources */,
 				0411B8B225AF99A700360B95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

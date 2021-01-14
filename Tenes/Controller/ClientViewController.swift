@@ -8,14 +8,16 @@
 import UIKit
 import CoreData
 
-class PeopleViewController: UIViewController {
+class ClientViewController: UIViewController {
 
-    @IBOutlet var personName: UILabel!
+    @IBOutlet var owedBefore: UILabel!
+    @IBOutlet var totalOwed: UILabel!
+    @IBOutlet var clientName: UILabel!
     @IBOutlet var numOfBoxesDelivered: UILabel!
     @IBOutlet var numOfBoxesReturned: UILabel!
     @IBOutlet var stepperDeliver: UIStepper!
     @IBOutlet var stepperReturn: UIStepper!
-    var selectedPerson: Person? {
+    var selectedPerson: Client? {
         didSet {
             //loadGroceries()
         }
@@ -23,7 +25,7 @@ class PeopleViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
-        personName.text = selectedPerson?.name
+        clientName.text = selectedPerson?.name
         stepperReturn.wraps = true
         stepperReturn.autorepeat = true
         stepperReturn.maximumValue = 99

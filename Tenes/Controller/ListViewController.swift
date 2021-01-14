@@ -10,7 +10,7 @@ import CoreData
 
 class ListViewController: UITableViewController {
 
-    var people = [Person]()
+    var clients = [Client]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +24,14 @@ class ListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return people.count
+        return clients.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath)
         
-        let person = people[indexPath.row]
-        
-        cell.textLabel?.text = person.name
+        let client = clients[indexPath.row]
+        cell.textLabel?.text = client.name
         
         return cell
     }
@@ -49,9 +48,9 @@ class ListViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadCategories(with request: NSFetchRequest<Person> = Person.fetchRequest()) {
+    func loadCategories(with request: NSFetchRequest<Client> = Client.fetchRequest()) {
         do {
-            people = try context.fetch(request)
+            clients = try context.fetch(request)
         } catch {
             print("Error fetching data from context \(error)")
         }
@@ -64,10 +63,10 @@ class ListViewController: UITableViewController {
         let alert = UIAlertController(title: "Agregar Cliente", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Agregar", style: .default) { (action) in
-            let newPerson = Person(context: self.context)
-            newPerson.name = textField.text
+            let newClient = Client(context: self.context)
+            newClient.name = textField.text
             
-            self.people.append(newPerson)
+            self.clients.append(newClient)
             self.saveCategories()
         }
         
@@ -88,10 +87,11 @@ class ListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! PeopleViewController
+        let destinationVC = segue.destination as! ClientViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedPerson = people[indexPath.row]
+            destinationVC.selectedPerson = clients[indexPath.row]
+            
         }
     }
 }

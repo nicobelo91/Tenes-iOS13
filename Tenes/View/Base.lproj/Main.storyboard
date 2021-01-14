@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="peopleCell" id="JC8-d8-2jZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClientCell" id="JC8-d8-2jZ" customClass="ClientCell" customModule="Tenes">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JC8-d8-2jZ" id="LUd-qt-44Q">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JC8-d8-2jZ" id="LUd-qt-44Q" customClass="ClientCell" customModule="Tenes">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="605.79710144927537" y="38.839285714285715"/>
         </scene>
-        <!--People View Controller-->
+        <!--Client View Controller-->
         <scene sceneID="61R-kQ-FzQ">
             <objects>
-                <viewController id="y0w-je-ZrG" customClass="PeopleViewController" customModule="Tenes" sceneMemberID="viewController">
+                <viewController id="y0w-je-ZrG" customClass="ClientViewController" customModule="Tenes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hdn-tI-BBm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,11 +138,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="cV9-8A-l2g"/>
                     <connections>
+                        <outlet property="clientName" destination="Zgr-hW-3pT" id="KXB-fy-jIC"/>
                         <outlet property="numOfBoxesDelivered" destination="Xle-rM-RsA" id="IzJ-JR-hP2"/>
                         <outlet property="numOfBoxesReturned" destination="Jcp-S7-qWJ" id="4yN-ay-aD7"/>
-                        <outlet property="personName" destination="Zgr-hW-3pT" id="KXB-fy-jIC"/>
+                        <outlet property="owedBefore" destination="hPX-wu-XS6" id="k6f-kF-WzW"/>
                         <outlet property="stepperDeliver" destination="1vf-Ej-brj" id="4M2-JI-qRL"/>
                         <outlet property="stepperReturn" destination="CHR-q0-Cqq" id="pF8-rx-MWv"/>
+                        <outlet property="totalOwed" destination="CbY-ma-lWN" id="fLH-Cl-vY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DI-AK-1iD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

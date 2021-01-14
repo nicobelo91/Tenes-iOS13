@@ -14,7 +14,7 @@
 		0411B8BC25AF99AB00360B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0411B8BB25AF99AB00360B95 /* Assets.xcassets */; };
 		0411B8BF25AF99AB00360B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411B8BD25AF99AB00360B95 /* LaunchScreen.storyboard */; };
 		0411B8C925AF9E1000360B95 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8C825AF9E1000360B95 /* ListViewController.swift */; };
-		0411B8CF25AFA6F700360B95 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8CE25AFA6F700360B95 /* PeopleViewController.swift */; };
+		0411B8CF25AFA6F700360B95 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8CE25AFA6F700360B95 /* ClientViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		0411B8BE25AF99AB00360B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0411B8C025AF99AB00360B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0411B8C825AF9E1000360B95 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		0411B8CE25AFA6F700360B95 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		0411B8CE25AFA6F700360B95 /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				0411B8C825AF9E1000360B95 /* ListViewController.swift */,
-				0411B8CE25AFA6F700360B95 /* PeopleViewController.swift */,
+				0411B8CE25AFA6F700360B95 /* ClientViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0411B8CF25AFA6F700360B95 /* PeopleViewController.swift in Sources */,
+				0411B8CF25AFA6F700360B95 /* ClientViewController.swift in Sources */,
 				0411B8BA25AF99A700360B95 /* Tenes.xcdatamodeld in Sources */,
 				0411B8B025AF99A700360B95 /* AppDelegate.swift in Sources */,
 				0411B8C925AF9E1000360B95 /* ListViewController.swift in Sources */,

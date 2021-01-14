@@ -9,30 +9,37 @@ import UIKit
 import CoreData
 
 class ListViewController: UITableViewController {
-
+    
     var clients = [Client]()
+    let tenesBrain = TenesBrain()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tenesBrain.updateNumOfBoxes()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        tableView.register(UINib(nibName: "ClientCell", bundle: nil), forCellReuseIdentifier: "ClientCell")
         loadCategories()
+        
     }
 
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return clients.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
         
         let client = clients[indexPath.row]
-        cell.textLabel?.text = client.name
-        
+        cell.clientName.text = client.name
+        cell.boxesOwed.text = client.boxes
+    
         return cell
     }
     
@@ -91,7 +98,11 @@ class ListViewController: UITableViewController {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedPerson = clients[indexPath.row]
-            
+            destinationVC.displayTotal = { [weak self](boxes) in
+                self!.clients[indexPath.row].boxes = boxes
+                self!.tenesBrain.getNumOfBoxes(boxes)
+            }
+
         }
     }
 }

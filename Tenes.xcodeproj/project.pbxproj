@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0408B29525B0A34F006E82F7 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408B29325B0A34F006E82F7 /* ClientCell.swift */; };
+		0408B29625B0A34F006E82F7 /* ClientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0408B29425B0A34F006E82F7 /* ClientCell.xib */; };
+		0408B29B25B0F763006E82F7 /* TenesBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408B29A25B0F763006E82F7 /* TenesBrain.swift */; };
 		0411B8B025AF99A700360B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8AF25AF99A700360B95 /* AppDelegate.swift */; };
 		0411B8B225AF99A700360B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8B125AF99A700360B95 /* SceneDelegate.swift */; };
 		0411B8B725AF99A700360B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0411B8B525AF99A700360B95 /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0408B29325B0A34F006E82F7 /* ClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
+		0408B29425B0A34F006E82F7 /* ClientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientCell.xib; sourceTree = "<group>"; };
+		0408B29A25B0F763006E82F7 /* TenesBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenesBrain.swift; sourceTree = "<group>"; };
 		0411B8AC25AF99A700360B95 /* Tenes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tenes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411B8AF25AF99A700360B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411B8B125AF99A700360B95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				0411B8B525AF99A700360B95 /* Main.storyboard */,
+				0408B29325B0A34F006E82F7 /* ClientCell.swift */,
+				0408B29425B0A34F006E82F7 /* ClientCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				0411B8B825AF99A700360B95 /* Tenes.xcdatamodeld */,
+				0408B29A25B0F763006E82F7 /* TenesBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +165,7 @@
 			files = (
 				0411B8BF25AF99AB00360B95 /* LaunchScreen.storyboard in Resources */,
 				0411B8BC25AF99AB00360B95 /* Assets.xcassets in Resources */,
+				0408B29625B0A34F006E82F7 /* ClientCell.xib in Resources */,
 				0411B8B725AF99A700360B95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0408B29B25B0F763006E82F7 /* TenesBrain.swift in Sources */,
 				0411B8CF25AFA6F700360B95 /* ClientViewController.swift in Sources */,
 				0411B8BA25AF99A700360B95 /* Tenes.xcdatamodeld in Sources */,
+				0408B29525B0A34F006E82F7 /* ClientCell.swift in Sources */,
 				0411B8B025AF99A700360B95 /* AppDelegate.swift in Sources */,
 				0411B8C925AF9E1000360B95 /* ListViewController.swift in Sources */,
 				0411B8B225AF99A700360B95 /* SceneDelegate.swift in Sources */,

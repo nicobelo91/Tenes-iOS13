@@ -17,15 +17,13 @@ class ClientViewController: UIViewController {
     @IBOutlet var numOfBoxesReturned: UILabel!
     @IBOutlet var stepperDeliver: UIStepper!
     @IBOutlet var stepperReturn: UIStepper!
-    var selectedPerson: Client? {
-        didSet {
-            //loadGroceries()
-        }
-    }
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var selectedPerson: Client?
+    var displayTotal: ((_ boxes: String) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         clientName.text = selectedPerson?.name
+        owedBefore.text = selectedPerson?.boxes
         stepperReturn.wraps = true
         stepperReturn.autorepeat = true
         stepperReturn.maximumValue = 99
@@ -40,7 +38,10 @@ class ClientViewController: UIViewController {
         } else if sender == stepperReturn {
             numOfBoxesReturned.text = Int(sender.value).description
         }
+        totalOwed.text = (Int(owedBefore.text!)! + Int(numOfBoxesDelivered.text!)! - Int(numOfBoxesReturned.text!)!).description
+        displayTotal?(totalOwed.text!)
     }
+    
     
 
 }

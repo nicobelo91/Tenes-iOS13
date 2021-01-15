@@ -15,7 +15,8 @@ class ListViewController: UITableViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        loadClients()
+        //tableView.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +46,13 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            self.context.delete(self.clients[indexPath.row])
             clients.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveClients()
         }
-        saveClients()
+        
     }
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-            let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-                self.tableView.dataSource?.tableView!(self.tableView, commit: .delete, forRowAt: indexPath)
-                return
-            }
-            deleteButton.backgroundColor = UIColor.black
-            return [deleteButton]
-        }
     // MARK: - Data MAnipulation
     
     func saveClients() {
@@ -79,6 +74,7 @@ class ListViewController: UITableViewController {
         self.clients.sort {
             $0.boxes! > $1.boxes!
         }
+        tableView.reloadData()
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {

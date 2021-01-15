@@ -3,10 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "+[RLMSchema sharedSchema]:RLMSchema.mm">
+      </ContextState>
+      <ContextState
          contextName = "ListViewController.prepare(for:sender:):ListViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "clients[indexPath.row].owes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListViewController.tableView(_:commit:forRowAt:):ListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "clients.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListViewController.tableView(_:editActionsForRowAt:for:):ListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.clients[indexPath.row]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

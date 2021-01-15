@@ -15,7 +15,7 @@ class ListViewController: UITableViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewWillAppear(_ animated: Bool) {
-        tenesBrain.updateNumOfBoxes()
+        tableView.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

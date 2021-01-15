@@ -22,7 +22,7 @@ class ListViewController: UITableViewController {
 
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         tableView.register(UINib(nibName: "ClientCell", bundle: nil), forCellReuseIdentifier: "ClientCell")
-        loadCategories()
+        loadClients()
         
     }
 
@@ -43,9 +43,24 @@ class ListViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            clients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        saveClients()
+    }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+            let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+                self.tableView.dataSource?.tableView!(self.tableView, commit: .delete, forRowAt: indexPath)
+                return
+            }
+            deleteButton.backgroundColor = UIColor.black
+            return [deleteButton]
+        }
     // MARK: - Data MAnipulation
     
-    func saveCategories() {
+    func saveClients() {
         do {
             try context.save()
         } catch {
@@ -55,11 +70,14 @@ class ListViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadCategories(with request: NSFetchRequest<Client> = Client.fetchRequest()) {
+    func loadClients(with request: NSFetchRequest<Client> = Client.fetchRequest()) {
         do {
             clients = try context.fetch(request)
         } catch {
             print("Error fetching data from context \(error)")
+        }
+        self.clients.sort {
+            $0.boxes! > $1.boxes!
         }
     }
 
@@ -74,7 +92,8 @@ class ListViewController: UITableViewController {
             newClient.name = textField.text
             
             self.clients.append(newClient)
-            self.saveCategories()
+            self.saveClients()
+            self.loadClients()
         }
         
         alert.addTextField { (alertTextField) in

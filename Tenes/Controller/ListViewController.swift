@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class ListViewController: UITableViewController {
     
@@ -40,6 +41,12 @@ class ListViewController: UITableViewController {
         let client = clients[indexPath.row]
         cell.clientName.text = client.name
         cell.boxesOwed.text = client.boxes
+        
+        if let color = HexColor("#604020")?.lighten(byPercentage: CGFloat(indexPath.row) / CGFloat(clients.count)) {
+            cell.backgroundColor = color
+            cell.clientName.textColor = ContrastColorOf(color, returnFlat: true)
+            cell.boxesOwed.textColor = ContrastColorOf(color, returnFlat: true)
+        }
     
         return cell
     }
@@ -51,9 +58,17 @@ class ListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
             saveClients()
         }
-        
     }
-    // MARK: - Data MAnipulation
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .default, title: "Borrar") { (action, indexPath) in
+            self.tableView.dataSource?.tableView!(self.tableView, commit: .delete, forRowAt: indexPath)
+            return
+        }
+        deleteButton.backgroundColor = UIColor.black
+        return [deleteButton]
+    }
+    // MARK: - Data Manipulation
     
     func saveClients() {
         do {
@@ -77,6 +92,8 @@ class ListViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    // MARK: - Add button
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var clientName = UITextField()

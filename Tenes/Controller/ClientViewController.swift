@@ -30,6 +30,7 @@ class ClientViewController: UIViewController {
         stepperDeliver.wraps = true
         stepperDeliver.autorepeat = true
         stepperDeliver.maximumValue = 99
+        totalOwed.text = owedBefore.text
         
     }
     @IBAction func stepperValueChanged(_ sender: UIStepper) {

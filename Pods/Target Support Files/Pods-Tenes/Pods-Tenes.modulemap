@@ -1,0 +1,6 @@
+framework module Pods_Tenes {
+  umbrella header "Pods-Tenes-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -80,26 +80,46 @@ class ListViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var clientName = UITextField()
+        var boxes = UITextField()
         
         
         let alert = UIAlertController(title: "Agregar Cliente", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Agregar", style: .default) { (action) in
-            let newClient = Client(context: self.context)
-            newClient.name = clientName.text
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+        
+        let addAction = UIAlertAction(title: "Agregar", style: .default) { (action) in
             
-            self.clients.append(newClient)
-            self.saveClients()
-            self.loadClients()
+            if clientName.text?.isEmpty ?? true || boxes.text?.isEmpty ?? true {
+                
+                let errorAlert = UIAlertController(title: "Agus, te faltó agregar uno de los campos", message: "", preferredStyle: .alert)
+                self.present(errorAlert, animated: true, completion: nil)
+                
+                let understandAction = UIAlertAction(title: "Entendido", style: .cancel, handler: {(alert: UIAlertAction!) in print("understood")})
+                errorAlert.addAction(understandAction)
+            } else {
+                
+                let newClient = Client(context: self.context)
+                newClient.name = clientName.text
+                newClient.boxes = boxes.text
+                
+                self.clients.append(newClient)
+                self.saveClients()
+                self.loadClients()
+            }
         }
         
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Agregar cliente"
             clientName = alertTextField
         }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Agregar cajas"
+            boxes = alertTextField
+        }
     
         
-        alert.addAction(action)
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
     }

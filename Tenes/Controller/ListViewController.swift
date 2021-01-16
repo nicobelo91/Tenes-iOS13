@@ -79,13 +79,14 @@ class ListViewController: UITableViewController {
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        var textField = UITextField()
+        var clientName = UITextField()
+        
         
         let alert = UIAlertController(title: "Agregar Cliente", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Agregar", style: .default) { (action) in
             let newClient = Client(context: self.context)
-            newClient.name = textField.text
+            newClient.name = clientName.text
             
             self.clients.append(newClient)
             self.saveClients()
@@ -94,8 +95,9 @@ class ListViewController: UITableViewController {
         
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Agregar cliente"
-            textField = alertTextField
+            clientName = alertTextField
         }
+    
         
         alert.addAction(action)
         

@@ -39,9 +39,13 @@ class ClientViewController: UIViewController {
             numOfBoxesReturned.text = Int(sender.value).description
         }
         totalOwed.text = (Int(owedBefore.text!)! + Int(numOfBoxesDelivered.text!)! - Int(numOfBoxesReturned.text!)!).description
-        displayTotal?(totalOwed.text!)
+        
     }
     
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        displayTotal?(totalOwed.text!)
+        navigationController?.popViewController(animated: true)
+    }
     
 
 }

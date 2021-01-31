@@ -11,6 +11,8 @@ import ChameleonFramework
 
 class ListViewController: UITableViewController {
     
+    @IBOutlet var boxesInOffice: UILabel!
+    @IBOutlet var totalBoxesButton: UIButton!
     var clients = [Client]()
     let tenesBrain = TenesBrain()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -131,8 +133,10 @@ class ListViewController: UITableViewController {
         }
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Agregar cajas"
+            alertTextField.keyboardType = .numberPad
             boxes = alertTextField
         }
+        
     
         
         alert.addAction(addAction)
@@ -141,6 +145,8 @@ class ListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func totalBoxesButtonPressed(_ sender: UIButton) {
+    }
     // MARK: - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

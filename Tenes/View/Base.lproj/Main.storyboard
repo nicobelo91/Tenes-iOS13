@@ -16,12 +16,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="gaX-ac-dIw">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="gx5-A0-dTU">
+                                    <rect key="frame" x="10" y="5" width="394" height="34"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cajones en Vivero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gz8-SM-2T1">
+                                            <rect key="frame" x="0.0" y="0.0" width="316" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z3-RC-Vj1">
+                                            <rect key="frame" x="344" y="0.0" width="50" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="TVy-Ed-9X0"/>
+                                                <constraint firstAttribute="width" constant="50" id="oIC-RV-MQI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.33231734971838073" green="0.5829631979695431" blue="0.31968575157333806" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="gx5-A0-dTU" secondAttribute="bottom" constant="5" id="4D5-Av-aKN"/>
+                                <constraint firstAttribute="trailing" secondItem="gx5-A0-dTU" secondAttribute="trailing" constant="10" id="N0g-hJ-egv"/>
+                                <constraint firstItem="gx5-A0-dTU" firstAttribute="leading" secondItem="gaX-ac-dIw" secondAttribute="leading" constant="10" id="N8a-oH-5Su"/>
+                                <constraint firstItem="gx5-A0-dTU" firstAttribute="top" secondItem="gaX-ac-dIw" secondAttribute="top" constant="5" id="fwO-Jg-O3Y"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="zDC-sX-Sl3">
+                            <rect key="frame" x="0.0" y="143.5" width="414" height="59"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfV-yN-Lfa">
+                                    <rect key="frame" x="77.5" y="8.5" width="259" height="42"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <state key="normal" title="TOTAL CAJONES = 100"/>
+                                    <connections>
+                                        <action selector="totalBoxesButtonPressed:" destination="bSg-SX-YfR" eventType="touchUpInside" id="UcF-1u-uVa"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.28502429559519349" green="0.5" blue="0.27419033713174468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="rfV-yN-Lfa" firstAttribute="centerX" secondItem="zDC-sX-Sl3" secondAttribute="centerX" id="WsI-r4-Fyw"/>
+                                <constraint firstItem="rfV-yN-Lfa" firstAttribute="centerY" secondItem="zDC-sX-Sl3" secondAttribute="centerY" id="X1q-qy-iR6"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RPw-fx-Alq">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RPw-fx-Alq" id="I7L-da-2ki" customClass="ClientCell" customModule="Tenes">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="bSg-SX-YfR" id="xou-7r-CU2"/>
                             <outlet property="delegate" destination="bSg-SX-YfR" id="pOp-YH-XAT"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tenes" id="S4t-WA-a9z">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ODh-Cy-3RM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2xz-x3-mde">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -30,6 +94,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="boxesInOffice" destination="2Z3-RC-Vj1" id="LeF-cC-0K6"/>
+                        <outlet property="totalBoxesButton" destination="rfV-yN-Lfa" id="DFv-cR-A4E"/>
                         <segue destination="y0w-je-ZrG" kind="show" identifier="goToPerson" id="g4J-vb-pPT"/>
                     </connections>
                 </tableViewController>

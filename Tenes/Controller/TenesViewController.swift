@@ -21,7 +21,6 @@ class TenesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadClients()
-        //tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -43,6 +42,7 @@ class TenesViewController: UIViewController {
             print("Error saving context \(error)")
         }
         
+        self.reloadAll()
         self.tableView.reloadData()
     }
     
@@ -55,7 +55,15 @@ class TenesViewController: UIViewController {
         self.clients.sort {
             $0.boxes! > $1.boxes!
         }
+        reloadAll()
         tableView.reloadData()
+    }
+    
+    func reloadAll() {
+        tableView.reloadData()
+        let totalAmount = clients.map{(Int($0.boxes!) ?? 0)}.reduce(0, +)
+        let totalBoxesDouble = Int(totalBoxes.text ?? "")!
+        boxesInVivero.text = "\(totalBoxesDouble - totalAmount)"
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {

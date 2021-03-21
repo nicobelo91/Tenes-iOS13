@@ -1,15 +1,19 @@
 //
-//  ListViewController.swift
+//  TenesViewController.swift
 //  Tenes
 //
-//  Created by Nico Cobelo on 13/01/2021.
+//  Created by Nicolas Cobelo on 21/03/2021.
 //
 
 import UIKit
 import CoreData
 import ChameleonFramework
 
-class ListViewController: UITableViewController {
+class TenesViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var boxesInVivero: UILabel!
+    @IBOutlet weak var totalBoxes: UILabel!
     
     var clients = [Client]()
     let tenesBrain = TenesBrain()
@@ -19,58 +23,19 @@ class ListViewController: UITableViewController {
         loadClients()
         //tableView.reloadData()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(UINib(nibName: "ClientCell", bundle: nil), forCellReuseIdentifier: "ClientCell")
+        
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         loadClients()
-        
     }
+    
 
-    // MARK: - Table view data source
-
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clients.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
-        
-        let client = clients[indexPath.row]
-        cell.clientName.text = client.name
-        cell.boxesOwed.text = client.boxes
-        
-        if let color = HexColor("#604020")?.lighten(byPercentage: CGFloat(indexPath.row) / CGFloat(clients.count)) {
-            cell.backgroundColor = color
-            cell.clientName.textColor = ContrastColorOf(color, returnFlat: true)
-            cell.boxesOwed.textColor = ContrastColorOf(color, returnFlat: true)
-        }
-    
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            self.context.delete(self.clients[indexPath.row])
-            clients.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            saveClients()
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteButton = UITableViewRowAction(style: .default, title: "Borrar") { (action, indexPath) in
-            self.tableView.dataSource?.tableView!(self.tableView, commit: .delete, forRowAt: indexPath)
-            return
-        }
-        deleteButton.backgroundColor = UIColor.black
-        return [deleteButton]
-    }
-    
-    // MARK: - Data Manipulation
-    
     func saveClients() {
         do {
             try context.save()
@@ -93,10 +58,7 @@ class ListViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    // MARK: - Add button
-    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
         var clientName = UITextField()
         var boxes = UITextField()
         
@@ -141,10 +103,50 @@ class ListViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
+}
+
+extension TenesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return clients.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
+        
+        let client = clients[indexPath.row]
+        cell.clientName.text = client.name
+        cell.boxesOwed.text = client.boxes
+        
+        if let color = HexColor("#604020")?.lighten(byPercentage: CGFloat(indexPath.row) / CGFloat(clients.count)) {
+            cell.backgroundColor = color
+            cell.clientName.textColor = ContrastColorOf(color, returnFlat: true)
+            cell.boxesOwed.textColor = ContrastColorOf(color, returnFlat: true)
+        }
     
-    // MARK: - Tableview Delegate Methods
+        return cell
+    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.context.delete(self.clients[indexPath.row])
+            clients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            saveClients()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .default, title: "Borrar") { (action, indexPath) in
+            self.tableView.dataSource?.tableView!(self.tableView, commit: .delete, forRowAt: indexPath)
+            return
+        }
+        deleteButton.backgroundColor = UIColor.black
+        return [deleteButton]
+    }
+}
+
+extension TenesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToPerson", sender: self)
     }
     

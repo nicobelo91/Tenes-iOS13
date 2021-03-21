@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		0411B8C925AF9E1000360B95 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8C825AF9E1000360B95 /* ListViewController.swift */; };
 		0411B8CF25AFA6F700360B95 /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411B8CE25AFA6F700360B95 /* ClientViewController.swift */; };
 		23269384C923DEED0650D1A2 /* Pods_Tenes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99773D1C49D4CC1D3DEB53D3 /* Pods_Tenes.framework */; };
+		7C6CF033260786AD0024F108 /* TenesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6CF032260786AD0024F108 /* TenesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		0411B8C025AF99AB00360B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0411B8C825AF9E1000360B95 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0411B8CE25AFA6F700360B95 /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
+		7C6CF032260786AD0024F108 /* TenesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenesViewController.swift; sourceTree = "<group>"; };
 		99773D1C49D4CC1D3DEB53D3 /* Pods_Tenes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tenes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DC0F089A8C3098DBCB9767 /* Pods-Tenes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenes.release.xcconfig"; path = "Target Support Files/Pods-Tenes/Pods-Tenes.release.xcconfig"; sourceTree = "<group>"; };
 		F8459286CBD7D349DB941694 /* Pods-Tenes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tenes.debug.xcconfig"; path = "Target Support Files/Pods-Tenes/Pods-Tenes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				0411B8C825AF9E1000360B95 /* ListViewController.swift */,
 				0411B8CE25AFA6F700360B95 /* ClientViewController.swift */,
+				7C6CF032260786AD0024F108 /* TenesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -127,7 +130,6 @@
 				F8459286CBD7D349DB941694 /* Pods-Tenes.debug.xcconfig */,
 				A3DC0F089A8C3098DBCB9767 /* Pods-Tenes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -248,6 +250,7 @@
 			files = (
 				0408B29B25B0F763006E82F7 /* TenesBrain.swift in Sources */,
 				0411B8CF25AFA6F700360B95 /* ClientViewController.swift in Sources */,
+				7C6CF033260786AD0024F108 /* TenesViewController.swift in Sources */,
 				0411B8BA25AF99A700360B95 /* Tenes.xcdatamodeld in Sources */,
 				0408B29525B0A34F006E82F7 /* ClientCell.swift in Sources */,
 				0411B8B025AF99A700360B95 /* AppDelegate.swift in Sources */,

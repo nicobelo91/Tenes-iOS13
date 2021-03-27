@@ -98,8 +98,8 @@
 		0411B8CC25AFA6CC00360B95 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0411B8CE25AFA6F700360B95 /* ClientViewController.swift */,
 				7C6CF032260786AD0024F108 /* TenesViewController.swift */,
+				0411B8CE25AFA6F700360B95 /* ClientViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

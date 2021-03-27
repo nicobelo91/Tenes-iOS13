@@ -10,7 +10,7 @@ import CoreData
 import ChameleonFramework
 
 class TenesViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var boxesInVivero: UILabel!
     @IBOutlet weak var totalBoxes: UILabel!
@@ -25,16 +25,16 @@ class TenesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ClientCell", bundle: nil), forCellReuseIdentifier: "ClientCell")
         
-//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        //        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         loadClients()
     }
     
-
+    
     func saveClients() {
         do {
             try context.save()
@@ -65,7 +65,7 @@ class TenesViewController: UIViewController {
         let totalBoxesDouble = Int(totalBoxes.text ?? "")!
         boxesInVivero.text = "\(totalBoxesDouble - totalAmount)"
     }
-
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var clientName = UITextField()
         var boxes = UITextField()
@@ -100,11 +100,12 @@ class TenesViewController: UIViewController {
             alertTextField.placeholder = "Agregar cliente"
             clientName = alertTextField
         }
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Agregar cajas"
-            boxes = alertTextField
+        alert.addTextField { (textField) in
+                        textField.placeholder = "Agregar cajas"
+                        boxes = textField
         }
-    
+        
+        
         
         alert.addAction(addAction)
         alert.addAction(cancelAction)
@@ -117,7 +118,7 @@ extension TenesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return clients.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
         
@@ -130,7 +131,7 @@ extension TenesViewController: UITableViewDataSource {
             cell.clientName.textColor = ContrastColorOf(color, returnFlat: true)
             cell.boxesOwed.textColor = ContrastColorOf(color, returnFlat: true)
         }
-    
+        
         return cell
     }
     
@@ -167,7 +168,7 @@ extension TenesViewController: UITableViewDelegate {
                 self!.clients[indexPath.row].boxes = boxes
                 self!.tenesBrain.getNumOfBoxes(boxes)
             }
-
+            
         }
     }
 }
